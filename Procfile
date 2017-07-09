@@ -1,1 +1,1 @@
-web: python hello.py runserver
+web: gunicorn hello

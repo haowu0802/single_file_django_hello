@@ -2,11 +2,8 @@
 Demonstrate how to make a single file hello world web application using Django (commonly referred as heavy weighted framework)
     run it with:    python hello.py runserver
 """
-# for manage
 import sys  # for using manage.py with arguments
-
-# for settings, settings must be set before importing other components
-from django.conf import settings  # for Django settings
+from django.conf import settings  # for Django settings, settings must be set before importing other components
 
 # the settings, typically in settings.py
 settings.configure(
@@ -21,10 +18,14 @@ settings.configure(
 )
 
 
-# for controller
-from django.conf.urls import url  # for routing
-# for views
-from django.http import HttpResponse  # for constructing response
+"""
+above this point needs to run before below
+"""
+from django.conf.urls import url  # for routing in controller
+from django.http import HttpResponse  # for constructing response in views
+from django.core.wsgi import get_wsgi_application  # wsgi application for prod server, usually in wsgi.py
+
+application = get_wsgi_application()  # init wsgi app
 
 
 # the view, typically in a view.py file, but that's not a requirement of Django
