@@ -15,6 +15,7 @@ settings.configure(
         'django.middleware.csrf.CsrfViewMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
     ),
+    ALLOWED_HOSTS=['*'],
 )
 
 
